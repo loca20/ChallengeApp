@@ -21,12 +21,12 @@
         }
 
         [Test]
-        public void AreAgeOfEmployeesAreNotEqual()
+        public void AreNumbersNotEqual()
         {
-            int ageOfEmployee1 = 23;
-            int ageOfEmployee2 = 28;
+            int number1 = 23;
+            int number2 = 28;
 
-            Assert.AreNotEqual(ageOfEmployee1, ageOfEmployee2);
+            Assert.AreNotEqual(number1, number2);
         }
 
         [Test]
