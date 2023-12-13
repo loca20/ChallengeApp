@@ -12,7 +12,7 @@
         }
 
         [Test]
-        public void AreNamesTwoEmployeesNotEqual()
+        public void AreNamesTwoEmployeesAreEqual()
         {
             var employee1 = GetEmployee("Olga", "Kowalik", 23);
             var employee2 = GetEmployee("Olga", "Kowalik", 23);
