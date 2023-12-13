@@ -50,4 +50,3 @@ Console.WriteLine("- " + employee1.Name + " " + employee1.Surname + " zdobył pu
 Console.WriteLine("- " + employee2.Name + " " + employee2.Surname + " zdobył punktów: " + result2);
 Console.WriteLine("- " + employee3.Name + " " + employee3.Surname + " zdobył punktów: " + result3);
 
-
