@@ -1,5 +1,4 @@
 ﻿using ChallengeApp;
-using System.Runtime.CompilerServices;
 
 var employee = new Employee("Damian", "Kowalski");
 employee.AddGrade(2);
