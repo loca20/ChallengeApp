@@ -1,4 +1,6 @@
-﻿namespace ChallengeApp
+﻿using System.Diagnostics;
+
+namespace ChallengeApp
 {
     public class Employee
     {
@@ -14,7 +16,38 @@
     
         public void AddGrade(float grade)
         {
-            this.grades.Add(grade);
+            if(grade >= 0 && grade <= 100)
+            {
+                this.grades.Add(grade);
+            }
+            else
+            { 
+                Console.WriteLine($"'{grade}' is invalid grade value. You can add a grade from 0 to 100.");
+            }
+           
+        }
+
+        public void AddGrade(string grade)
+        {
+            if(float.TryParse(grade, out float result)) 
+            {
+                this.AddGrade(result);
+            }
+            else
+            {
+                Console.WriteLine($"String '{grade}' can not be convert to float value.");
+            }
+        }
+
+        public void AddGrade(double grade)
+        {
+           float valueInFloat = (float)grade;
+            this.AddGrade(valueInFloat);
+        }
+        public void AddGrade(long grade)
+        {
+            float valueInFloat = (float)grade;
+            this.AddGrade(valueInFloat);
         }
 
         public Statistics GetStatistics()
@@ -23,6 +56,7 @@
             statistics.Average = 0;
             statistics.Max = float.MinValue;
             statistics.Min = float.MaxValue;
+        
 
             foreach(var grade in this.grades)
             {
@@ -32,6 +66,7 @@
             }
 
             statistics.Average /= this.grades.Count;
+            statistics.Counter = this.grades.Count;
 
             return statistics;
         }
