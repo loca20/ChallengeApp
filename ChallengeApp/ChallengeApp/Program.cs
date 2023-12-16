@@ -10,12 +10,11 @@ employee.AddGrade(102);
 employee.AddGrade("dwa");
 employee.AddGrade(4);
 
-
 var statistics = employee.GetStatistics();
-var counterIncorectGradeValue = employee.GetAddGradeCounter();
-var counterAllGrades = counterIncorectGradeValue + statistics.Counter;
+var correctGradeCounter = employee.GradesCount;
+var counterAllGrades = employee.IncorrectGradeCounter + correctGradeCounter;
 
-Console.WriteLine($"\nAdded {counterAllGrades} grades. {counterIncorectGradeValue} of them have an incorrect value, so the statistics were calculated based on {statistics.Counter} grades:");
+Console.WriteLine($"\nAdded {counterAllGrades} grades. {employee.IncorrectGradeCounter} of them have an incorrect value, so the statistics were calculated based on {correctGradeCounter} grades:");
 Console.WriteLine($"- average: {statistics.Average:N2}");
 Console.WriteLine($"- min: {statistics.Min}");
 Console.WriteLine($"- max: {statistics.Max}");
