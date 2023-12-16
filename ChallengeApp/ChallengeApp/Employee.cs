@@ -3,6 +3,8 @@
     public class Employee
     {
         private List<float> grades = new List<float>();
+        private int addGradeCounter = 0;
+
         public Employee(string name, string surname)
         {
             this.Name = name;
@@ -14,12 +16,14 @@
     
         public void AddGrade(float grade)
         {
+            
             if(grade >= 0 && grade <= 100)
             {
                 this.grades.Add(grade);
             }
             else
-            { 
+            {
+                this.addGradeCounter++;
                 Console.WriteLine($"'{grade}' is invalid grade value. You can add a grade from 0 to 100.");
             }
            
@@ -27,12 +31,14 @@
 
         public void AddGrade(string grade)
         {
-            if(float.TryParse(grade, out float result)) 
+            
+            if (float.TryParse(grade, out float result)) 
             {
                 this.AddGrade(result);
             }
             else
             {
+                this.addGradeCounter++;
                 Console.WriteLine($"String '{grade}' can not be convert to float value.");
             }
         }
@@ -68,5 +74,8 @@
 
             return statistics;
         }
+
+        public int GetAddGradeCounter()
+        { return this.addGradeCounter; }
     }
 }
