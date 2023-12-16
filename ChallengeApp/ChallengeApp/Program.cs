@@ -10,7 +10,11 @@ employee.AddGrade(102);
 employee.AddGrade("dwa");
 employee.AddGrade(4);
 
-var statistics = employee.GetStatistics();
+var statistics = employee.GetStatisticsWithForEach();
+var statistics1 = employee.GetStatisticsWithFor();
+var statistics2 = employee.GetStatisticsWithDoWhile();
+var statistics3 = employee.GetStatisticsWithWhile();
+
 var correctGradeCounter = employee.GradesCount;
 var counterAllGrades = employee.IncorrectGradeCounter + correctGradeCounter;
 
@@ -18,4 +22,3 @@ Console.WriteLine($"\nAdded {counterAllGrades} grades. {employee.IncorrectGradeC
 Console.WriteLine($"- average: {statistics.Average:N2}");
 Console.WriteLine($"- min: {statistics.Min}");
 Console.WriteLine($"- max: {statistics.Max}");
-
