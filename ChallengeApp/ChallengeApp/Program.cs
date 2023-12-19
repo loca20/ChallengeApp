@@ -9,27 +9,36 @@ var employee = new Employee("Jan", "Kowalski");
 
 while (true)
 {
+
     var input = Console.ReadLine();
-    if (input == "q")
+    if (input == "q" || input == "Q")
     {
         break;
     }
-    
-    Console.WriteLine("Podaj kolejną ocenę pracownika: ");
-    employee.AddGrade(input);
+
+    try
+    {
+        employee.AddGrade(input);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"Exception catched: {e.Message}");
+    }
+    Console.WriteLine("Podaj kolejną ocenę pracownika lub wciśnij 'Q'aby wyświetlić statystyki: ");
 }
 
 var statistics = employee.GetStatistics();
 var correctGradeCounter = employee.GradesCount;
 var counterAllGrades = employee.IncorrectGradeCounter + correctGradeCounter;
 
-if(employee.IncorrectGradeCounter == 0)
+if (employee.IncorrectGradeCounter == 0)
 {
     Console.WriteLine($"\nStatystyka została policzona na podstawie {correctGradeCounter} poprawnie dodanych ocen:");
 
-} else
+}
+else
 {
-    Console.WriteLine($"\nDodano {counterAllGrades} ocen. {employee.IncorrectGradeCounter} z nich ma niepoprawną wartość, dlatego statystyki zostały policzone na podstawie {correctGradeCounter} poprawnie dodanych ocen:");
+    Console.WriteLine($"\nIlość dodanych ocen: {counterAllGrades}. {employee.IncorrectGradeCounter} z nich ma niepoprawną wartość, dlatego statystyki zostały policzone na podstawie {correctGradeCounter} poprawnie dodanych ocen:");
 
 }
 Console.WriteLine($"- średnia ocen: {statistics.Average} ({statistics.AverageLetter})");

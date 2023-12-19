@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ChallengeApp
+﻿namespace ChallengeApp
 {
     public class Employee
     {
@@ -31,7 +29,7 @@ namespace ChallengeApp
             else
             {
                 IncorrectGradeCounter++;
-                Console.WriteLine($"'{grade}' is invalid grade value. You can add a grade from 0 to 100.");
+                throw new Exception($"'{grade}' is invalid grade value. You can add a grade from 0 to 100.");
             }
 
         }
@@ -42,37 +40,47 @@ namespace ChallengeApp
             {
                 this.AddGrade(result);
             }
+            else if (char.TryParse(grade, out char result1))
+            {
+                this.AddGrade(result1);
+            }
             else
             {
-                switch (grade)
-                {
-                    case "A":
-                    case "a":
-                        this.AddGrade(100);
-                        break;
-                    case "B":
-                    case "b":
-                        this.AddGrade(80);
-                        break;
-                    case "C":
-                    case "c":
-                        this.AddGrade(60);
-                        break;
-                    case "D":
-                    case "d":
-                        this.AddGrade(40);
-                        break;
-                    case "E":
-                    case "e":
-                        this.AddGrade(20);
-                        break;
-                    default:
-                        IncorrectGradeCounter++;
-                        Console.WriteLine($"String '{grade}' can not be convert to float value.");
-                        break;
-                }
+                IncorrectGradeCounter++;
+                throw new Exception($"String '{grade}' can not be convert to float value.");
             }
         }
+
+        public void AddGrade(char grade)
+        {
+            switch (grade)
+            {
+                case 'A':
+                case 'a':
+                    this.AddGrade(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.AddGrade(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.AddGrade(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.AddGrade(40);
+                    break;
+                case 'E':
+                case 'e':
+                    this.AddGrade(20);
+                    break;
+                default:
+                    IncorrectGradeCounter++;
+                    throw new Exception($"String '{grade}' can not be convert to float value. You can use only: A, B, C, D, E.");
+            }
+        }
+
         public void AddGrade(double grade)
         {
             float valueInFloat = (float)grade;
