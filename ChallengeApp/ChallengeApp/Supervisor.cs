@@ -21,7 +21,6 @@
 
         public void AddGrade(float grade)
         {
-
             if (grade >= 0 && grade <= 100)
             {
                 this.grades.Add(grade);
@@ -36,11 +35,7 @@
 
         public void AddGrade(string grade)
         {
-            if (float.TryParse(grade, out float result))
-            {
-                this.AddGrade(result);
-            }
-            else if (char.TryParse(grade, out char result1))
+            if (char.TryParse(grade, out char result1))
             {
                 this.AddGrade(result1);
             }
@@ -132,9 +127,9 @@
                         this.AddGrade(0);
                         break;
                     default:
-                        if (float.TryParse(grade, out float result2))
+                        if (float.TryParse(grade, out float result))
                         {
-                            this.AddGrade(result2);
+                            this.AddGrade(result);
                         }
                         break;
                 }
@@ -145,7 +140,6 @@
                 throw new Exception($"String '{grade}' can not be convert to float value.");
             }
         }
-
         public void AddGrade(char grade)
         {
             switch (grade)

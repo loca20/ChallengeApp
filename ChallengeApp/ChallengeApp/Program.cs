@@ -5,7 +5,8 @@ Console.WriteLine("============================================");
 Console.WriteLine();
 Console.WriteLine("Podaj ocenę pracownika: ");
 
-var employee = new Employee("Jan", "Kowalski");
+//var employee = new Employee("Jan", "Kowalski");
+var employee = new Supervisor("Jan", "Kowalski");
 
 while (true)
 {
