@@ -35,34 +35,32 @@
 
         public void AddGrade(string grade)
         {
-            if (new[] { "6", "6-", "-6", "+5", "5+", "5", "-5", "5-", "+4", "4+", "4", "-4", "4-", "+3", "3+", "3", "-3", "3-", "+2", "2+", "2", "-2", "2-", "+1", "1+", "1" }.Contains(grade))
+            float mappedGrade = grade switch
             {
-                float mappedGrade = grade switch
-                {
-                    "6" => 100,
-                    "6-" or "-6" => 95,
-                    "5+" or "+5" => 85,
-                    "5" => 80,
-                    "5-" or "-5" => 75,
-                    "4+" or "+4" => 65,
-                    "4" => 60,
-                    "4-" or "-4" => 55,
-                    "3+" or "+3" => 45,
-                    "3" => 40,
-                    "3-" or "-3" => 35,
-                    "2+" or "+2" => 25,
-                    "2" => 20,
-                    "2-" or "-2" => 15,
-                    "1+" or "+1" => 5,
-                    "1" => 0,
-                    _ => float.TryParse(grade, out float result) ? result : -1
-                };
+                "6" => 100,
+                "6-" or "-6" => 95,
+                "5+" or "+5" => 85,
+                "5" => 80,
+                "5-" or "-5" => 75,
+                "4+" or "+4" => 65,
+                "4" => 60,
+                "4-" or "-4" => 55,
+                "3+" or "+3" => 45,
+                "3" => 40,
+                "3-" or "-3" => 35,
+                "2+" or "+2" => 25,
+                "2" => 20,
+                "2-" or "-2" => 15,
+                "1+" or "+1" => 5,
+                "1" => 0,
+                _ => float.TryParse(grade, out float result) ? result : -1
+            };
 
-                if (mappedGrade >= 0)
-                {
-                    this.AddGrade(mappedGrade);
-                }
+            if (mappedGrade >= 0)
+            {
+                this.AddGrade(mappedGrade);
             }
+
             else if (float.TryParse(grade, out float result))
             {
                 this.AddGrade(result);
