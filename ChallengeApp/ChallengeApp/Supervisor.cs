@@ -35,99 +35,32 @@
 
         public void AddGrade(string grade)
         {
-            if (grade == "6" ||
-                grade == "6-" ||
-                grade == "-6" ||
-                grade == "+5" ||
-                grade == "5+" ||
-                grade == "5" ||
-                grade == "-5" ||
-                grade == "5-" ||
-                grade == "+4" ||
-                grade == "4+" ||
-                grade == "4" ||
-                grade == "-4" ||
-                grade == "4-" ||
-                grade == "+3" ||
-                grade == "3+" ||
-                grade == "3" ||
-                grade == "-3" ||
-                grade == "3-" ||
-                grade == "+2" ||
-                grade == "2+" ||
-                grade == "2" ||
-                grade == "-2" ||
-                grade == "2-" ||
-                grade == "+1" ||
-                grade == "1+" ||
-                grade == "1")
+            if (new[] { "6", "6-", "-6", "+5", "5+", "5", "-5", "5-", "+4", "4+", "4", "-4", "4-", "+3", "3+", "3", "-3", "3-", "+2", "2+", "2", "-2", "2-", "+1", "1+", "1" }.Contains(grade))
             {
-                switch (grade)
+                float mappedGrade = grade switch
                 {
-                    case "6":
-                        this.AddGrade(100);
-                        break;
-                    case "6-":
-                    case "-6":
-                        this.AddGrade(95);
-                        break;
-                    case "5+":
-                    case "+5":
-                        this.AddGrade(85);
-                        break;
-                    case "5":
-                        this.AddGrade(80);
-                        break;
-                    case "5-":
-                    case "-5":
-                        this.AddGrade(75);
-                        break;
-                    case "4+":
-                    case "+4":
-                        this.AddGrade(65);
-                        break;
-                    case "4":
-                        this.AddGrade(60);
-                        break;
-                    case "4-":
-                    case "-4":
-                        this.AddGrade(55);
-                        break;
-                    case "3+":
-                    case "+3":
-                        this.AddGrade(45);
-                        break;
-                    case "3":
-                        this.AddGrade(40);
-                        break;
-                    case "3-":
-                    case "-3":
-                        this.AddGrade(35);
-                        break;
-                    case "2+":
-                    case "+2":
-                        this.AddGrade(25);
-                        break;
-                    case "2":
-                        this.AddGrade(20);
-                        break;
-                    case "2-":
-                    case "-2":
-                        this.AddGrade(15);
-                        break;
-                    case "1+":
-                    case "+1":
-                        this.AddGrade(5);
-                        break;
-                    case "1":
-                        this.AddGrade(0);
-                        break;
-                    default:
-                        if (float.TryParse(grade, out float result))
-                        {
-                            this.AddGrade(result);
-                        }
-                        break;
+                    "6" => 100,
+                    "6-" or "-6" => 95,
+                    "5+" or "+5" => 85,
+                    "5" => 80,
+                    "5-" or "-5" => 75,
+                    "4+" or "+4" => 65,
+                    "4" => 60,
+                    "4-" or "-4" => 55,
+                    "3+" or "+3" => 45,
+                    "3" => 40,
+                    "3-" or "-3" => 35,
+                    "2+" or "+2" => 25,
+                    "2" => 20,
+                    "2-" or "-2" => 15,
+                    "1+" or "+1" => 5,
+                    "1" => 0,
+                    _ => float.TryParse(grade, out float result) ? result : -1
+                };
+
+                if (mappedGrade >= 0)
+                {
+                    this.AddGrade(mappedGrade);
                 }
             }
             else if (float.TryParse(grade, out float result))
