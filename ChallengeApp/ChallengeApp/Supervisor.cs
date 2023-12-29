@@ -35,11 +35,7 @@
 
         public void AddGrade(string grade)
         {
-            if (char.TryParse(grade, out char result1))
-            {
-                this.AddGrade(result1);
-            }
-            else if (grade == "6" ||
+            if (grade == "6" ||
                 grade == "6-" ||
                 grade == "-6" ||
                 grade == "+5" ||
@@ -133,6 +129,14 @@
                         }
                         break;
                 }
+            }
+            else if (float.TryParse(grade, out float result))
+            {
+                this.AddGrade(result);
+            }
+            else if (char.TryParse(grade, out char result1))
+            {
+                this.AddGrade(result1);
             }
             else
             {
