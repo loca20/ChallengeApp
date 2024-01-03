@@ -7,6 +7,12 @@
             : base(name, surname)
         {
         }
+        public int IncorrectGradeCounter { get; private set; }
+        public int CorrectGradeCounter { get; private set; }
+        public int GradesCount
+        {
+            get { return grades.Count; }
+        }
 
         public override void AddGrade(float grade)
         {
@@ -16,7 +22,7 @@
             }
             else
             {
-                //IncorrectGradeCounter++;
+                IncorrectGradeCounter++;
                 throw new Exception($"'{grade}' is invalid grade value. You can add a grade from 0 to 100.");
             }
         }
@@ -33,7 +39,7 @@
             }
             else
             {
-               //IncorrectGradeCounter++;
+               IncorrectGradeCounter++;
                 throw new Exception($"String '{grade}' can not be convert to float value.");
             }
         }
@@ -63,7 +69,7 @@
                     this.AddGrade(20);
                     break;
                 default:
-                    //IncorrectGradeCounter++;
+                    IncorrectGradeCounter++;
                     throw new Exception($"String '{grade}' can not be convert to float value. You can use only: A, B, C, D, E.");
             }
         }
@@ -73,7 +79,11 @@
             float valueInFloat = (float)grade;
             this.AddGrade(valueInFloat);
         }
-
+        public override void AddGrade(long grade)
+        {
+            float valueInFloat = (float)grade;
+            this.AddGrade(valueInFloat);
+        }
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();

@@ -10,10 +10,15 @@
 
         public override void AddGrade(float grade)
         {
-            using (var writer = File.AppendText(fileName))
+
+            if (grade >= 0 && grade <= 100)
             {
-                writer.WriteLine(grade);
+                using (var writer = File.AppendText(fileName))
+                {
+                    writer.WriteLine(grade);
+                }
             }
+           
         }
 
         public override void AddGrade(string grade)
@@ -68,7 +73,11 @@
             float valueInFloat = (float)grade;
             this.AddGrade(valueInFloat);
         }
-
+        public override void AddGrade(long grade)
+        {
+            float valueInFloat = (float)grade;
+            this.AddGrade(valueInFloat);
+        }
         public override Statistics GetStatistics()
         {
             var gradesFromFile = this.ReadGradesFromFile();

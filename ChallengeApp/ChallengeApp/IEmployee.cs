@@ -4,9 +4,7 @@
     {
         string Name { get; }
         string Surname { get; }
-        //int IncorrectGradeCounter { get; }
-        //int CorrectGradeCounter { get; }
-        //int GradesCount { get; }
+      
         void AddGrade(float grade);
         void AddGrade(string grade);
         void AddGrade(char grade);

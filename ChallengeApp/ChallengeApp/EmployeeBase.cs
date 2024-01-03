@@ -27,6 +27,8 @@
 
         public abstract void AddGrade(double grade);
 
+        public abstract void AddGrade(long grade);
+
         public abstract Statistics GetStatistics();
     }
 }
