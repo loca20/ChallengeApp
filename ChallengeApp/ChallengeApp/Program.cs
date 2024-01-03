@@ -9,9 +9,10 @@ var employee = new EmployeeInFile("Jan", "Kowalski");
 //var employee = new Supervisor("Jan", "Kowalski");
 
 employee.AddGrade(4);
-employee.AddGrade('A');
 employee.AddGrade(20);
+employee.AddGrade('A');
 employee.AddGrade(12);
+employee.AddGrade(120);
 
 
 //while (true)
