@@ -7,7 +7,12 @@
             : base(name, surname)
         {
         }
-
+        public int IncorrectGradeCounter { get; private set; }
+        public int CorrectGradeCounter { get; private set; }
+        public int GradesCount
+        {
+            get { return this.ReadGradesFromFile().Count; }
+        }
         public override void AddGrade(float grade)
         {
 
@@ -18,7 +23,12 @@
                     writer.WriteLine(grade);
                 }
             }
-           
+            else
+            {
+                IncorrectGradeCounter++;
+                throw new Exception($"'{grade}' is invalid grade value. You can add a grade from 0 to 100.");
+            }
+
         }
 
         public override void AddGrade(string grade)
@@ -33,7 +43,7 @@
             }
             else
             {
-                //IncorrectGradeCounter++;
+                IncorrectGradeCounter++;
                 throw new Exception($"String '{grade}' can not be convert to float value.");
             }
         }
@@ -63,7 +73,7 @@
                     this.AddGrade(20);
                     break;
                 default:
-                    //IncorrectGradeCounter++;
+                    IncorrectGradeCounter++;
                     throw new Exception($"String '{grade}' can not be convert to float value. You can use only: A, B, C, D, E.");
             }
         }

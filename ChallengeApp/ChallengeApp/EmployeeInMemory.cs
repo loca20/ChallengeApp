@@ -43,7 +43,6 @@
                 throw new Exception($"String '{grade}' can not be convert to float value.");
             }
         }
-
         public override void AddGrade(char grade)
         {
             switch (grade)
@@ -73,7 +72,6 @@
                     throw new Exception($"String '{grade}' can not be convert to float value. You can use only: A, B, C, D, E.");
             }
         }
-
         public override void AddGrade(double grade)
         {
             float valueInFloat = (float)grade;
@@ -90,7 +88,6 @@
             statistics.Average = 0;
             statistics.Max = float.MinValue;
             statistics.Min = float.MaxValue;
-
 
             foreach (var grade in this.grades)
             {

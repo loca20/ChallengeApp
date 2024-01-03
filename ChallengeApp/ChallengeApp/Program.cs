@@ -14,7 +14,6 @@ employee.AddGrade('A');
 employee.AddGrade(12);
 employee.AddGrade(120);
 
-
 //while (true)
 //{
 
@@ -36,19 +35,19 @@ employee.AddGrade(120);
 //}
 
 var statistics = employee.GetStatistics();
-//var correctGradeCounter = employee.GradesCount;
-//var counterAllGrades = employee.IncorrectGradeCounter + correctGradeCounter;
+var correctGradeCounter = employee.GradesCount;
+var counterAllGrades = employee.IncorrectGradeCounter + correctGradeCounter;
 
-//if (employee.IncorrectGradeCounter == 0)
-//{
-//    Console.WriteLine($"\nStatystyka została policzona na podstawie {correctGradeCounter} poprawnie dodanych ocen:");
+if (employee.IncorrectGradeCounter == 0)
+{
+    Console.WriteLine($"\nStatystyka została policzona na podstawie {correctGradeCounter} poprawnie dodanych ocen:");
 
-//}
-//else
-//{
-//    Console.WriteLine($"\nIlość dodanych ocen: {counterAllGrades}. {employee.IncorrectGradeCounter} z nich ma niepoprawną wartość, dlatego statystyki zostały policzone na podstawie {correctGradeCounter} poprawnie dodanych ocen:");
+}
+else
+{
+    Console.WriteLine($"\nIlość dodanych ocen: {counterAllGrades}. {employee.IncorrectGradeCounter} z nich ma niepoprawną wartość, dlatego statystyki zostały policzone na podstawie {correctGradeCounter} poprawnie dodanych ocen:");
 
-//}
+}
 Console.WriteLine($"- średnia ocen: {statistics.Average} ({statistics.AverageLetter})");
 Console.WriteLine($"- ocena najniższa: {statistics.Min}");
 Console.WriteLine($"- ocena najwyższa: {statistics.Max}");
