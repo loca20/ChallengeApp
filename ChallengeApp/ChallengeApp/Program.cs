@@ -8,31 +8,43 @@ Console.WriteLine("Podaj ocenę pracownika: ");
 var employee = new EmployeeInFile("Jan", "Kowalski");
 //var employee = new Supervisor("Jan", "Kowalski");
 
-employee.AddGrade(4);
-employee.AddGrade(20);
-employee.AddGrade('A');
-employee.AddGrade(12);
-employee.AddGrade(120);
+List<float> gradesToAdd = new List<float>();
+gradesToAdd.Add(50);
+gradesToAdd.Add(6);
+gradesToAdd.Add(8);
+gradesToAdd.Add(122);
+gradesToAdd.Add(33);
 
-//while (true)
-//{
+foreach (var gradeToAdd in gradesToAdd)
+{
+    try
+    {
+        employee.AddGrade(gradeToAdd);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"Exception catched: {e.Message}");
+    }
+}
 
-//    var input = Console.ReadLine();
-//    if (input == "q" || input == "Q")
-//    {
-//        break;
-//    }
+while (true)
+{
+    var input = Console.ReadLine();
+    if (input == "q" || input == "Q")
+    {
+        break;
+    }
 
-//    try
-//    {
-//        employee.AddGrade(input);
-//    }
-//    catch (Exception e)
-//    {
-//        Console.WriteLine($"Exception catched: {e.Message}");
-//    }
-//    Console.WriteLine("Podaj kolejną ocenę pracownika lub wciśnij 'Q'aby wyświetlić statystyki: ");
-//}
+    try
+    {
+        employee.AddGrade(input);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"Exception catched: {e.Message}");
+    }
+    Console.WriteLine("Podaj kolejną ocenę pracownika lub wciśnij 'Q'aby wyświetlić statystyki: ");
+}
 
 var statistics = employee.GetStatistics();
 var correctGradeCounter = employee.GradesCount;
