@@ -3,9 +3,10 @@
     public class EmployeeInMemory : EmployeeBase
     {
         private List<float> grades = new List<float>();
+ 
         public EmployeeInMemory(string name, string surname) 
             : base(name, surname)
-        {
+        { 
         }
         public int IncorrectGradeCounter { get; private set; }
         public int CorrectGradeCounter { get; private set; }
@@ -19,6 +20,7 @@
             if (grade >= 0 && grade <= 100)
             {
                 this.grades.Add(grade);
+                GradeAddedInfoDelegate();
             }
             else
             {

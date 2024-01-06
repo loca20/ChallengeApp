@@ -6,14 +6,16 @@ Console.WriteLine();
 Console.WriteLine("Podaj ocenę pracownika: ");
 
 var employee = new EmployeeInFile("Jan", "Kowalski");
+employee.GradeAdded += EmployeeGradeAdded;
+
+void EmployeeGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("Dodano nową ocenę");
+}
+
 //var employee = new Supervisor("Jan", "Kowalski");
 
-List<float> gradesToAdd = new List<float>();
-gradesToAdd.Add(50);
-gradesToAdd.Add(6);
-gradesToAdd.Add(8);
-gradesToAdd.Add(122);
-gradesToAdd.Add(33);
+List<float> gradesToAdd = new List<float> { 12, 7, 120, 16 };
 
 foreach (var gradeToAdd in gradesToAdd)
 {
